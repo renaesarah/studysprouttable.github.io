@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Study Sprout — timetable maker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..800,0..100,0..1&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="dd-star" viewBox="0 0 64 64"><path d="M32 6 C34 15 37 21 39 24 C45 25 52 25 58 26 C53 30 47 34 43 37 C44 43 46 50 48 57 C42 53 37 48 32 45 C27 49 21 53 16 56 C18 50 20 43 21 37 C16 33 11 29 6 25 C13 25 20 24 25 24 C27 18 30 12 32 6Z"/></symbol>
+  <symbol id="dd-sparkle" viewBox="0 0 64 64"><path d="M32 6 C34 24 40 30 58 32 C40 34 34 40 32 58 C30 40 24 34 6 32 C24 30 30 24 32 6Z"/></symbol>
+  <symbol id="dd-squiggle" viewBox="0 0 120 20"><path d="M4 12 C14 2 22 2 30 10 S46 18 56 10 S72 2 82 10 S98 18 108 10 L116 8"/></symbol>
+  <symbol id="dd-pencil" viewBox="0 0 64 64"><path d="M14 48 L44 18 L52 26 L22 56 L10 60 Z M44 18 L48 14 C50 12 53 12 55 14 L56 15 C58 17 58 20 56 22 L52 26 M40 22 L48 30 M14 48 L22 56 M12 54 L16 58"/></symbol>
+  <symbol id="dd-plane" viewBox="0 0 64 64"><path d="M14 30 L60 8 L48 52 L34 38 Z M34 38 L60 8 M34 38 L32 50 L40 44"/><path d="M4 52 C10 46 14 54 20 48 C24 44 26 48 28 46" stroke-dasharray="3 5"/></symbol>
+  <symbol id="dd-book" viewBox="0 0 64 64"><path d="M32 16 C24 10 14 10 6 12 L6 52 C14 50 24 50 32 56 C40 50 50 50 58 52 L58 12 C50 10 40 10 32 16 Z M32 16 L32 56 M12 22 C18 21 22 21 26 23 M12 30 C18 29 22 29 26 31 M38 23 C42 21 46 21 52 22 M38 31 C42 29 46 29 52 30"/></symbol>
+  <symbol id="dd-bulb" viewBox="0 0 64 64"><path d="M32 12 C21 12 15 21 17 30 C19 37 25 39 25 46 L39 46 C39 39 45 37 47 30 C49 21 43 12 32 12 Z M26 52 L38 52 M28 58 L36 58 M29 46 L29 36 L32 33 L35 36 L35 46 M8 12 L13 16 M56 12 L51 16 M4 30 L10 30 M60 30 L54 30 M32 2 L32 6"/></symbol>
+  <symbol id="dd-cloud" viewBox="0 0 64 64"><path d="M16 46 C6 46 6 32 16 32 C16 22 28 18 34 26 C38 18 52 20 50 32 C60 32 60 46 50 46 Z"/></symbol>
+  <symbol id="dd-heart" viewBox="0 0 64 64"><path d="M32 54 C18 44 8 34 10 22 C12 12 26 10 32 22 C38 10 52 12 54 22 C56 34 46 44 32 54 Z"/></symbol>
+  <symbol id="dd-mug" viewBox="0 0 64 64"><path d="M14 26 L46 26 L42 56 L18 56 Z M46 32 C56 32 56 46 44 46 M24 8 C20 13 28 15 24 20 M33 6 C29 11 37 13 33 18"/></symbol>
+  <symbol id="dd-arrow" viewBox="0 0 64 64"><path d="M6 52 C10 30 26 18 34 28 C40 36 30 44 26 36 C22 26 40 12 56 14 M48 8 L56 14 L50 22"/></symbol>
+  <symbol id="dd-leaf" viewBox="0 0 64 64"><path d="M10 54 C10 30 26 12 54 10 C54 38 36 54 10 54 Z M10 54 C24 40 34 30 44 20"/></symbol>
+  <symbol id="dd-clock" viewBox="0 0 64 64"><circle cx="32" cy="36" r="19"/><path d="M32 25 L32 36 L40 41 M9 20 C10 11 18 8 23 13 Z M55 20 C54 11 46 8 41 13 Z M19 53 L14 60 M45 53 L50 60"/></symbol>
+  <symbol id="dd-spiral" viewBox="0 0 64 64"><path d="M32 32 C34 30 36 34 32 36 C26 38 26 28 32 26 C40 24 42 38 32 42 C20 44 18 26 30 20 C44 14 52 32 44 44"/></symbol>
+  <symbol id="dd-books" viewBox="0 0 64 64"><path d="M10 50 L54 50 L54 58 L10 58 Z M14 40 L50 40 L50 50 L14 50 Z M8 30 L48 30 L48 40 L8 40 Z M18 30 L18 40 M44 40 L44 50 M30 50 L30 58 M34 30 C28 26 30 18 36 20 C42 18 44 26 38 30 M36 20 L38 14"/></symbol>
+  <symbol id="dd-zzz" viewBox="0 0 64 64"><path d="M6 42 L22 42 L6 58 L22 58 M30 24 L42 24 L30 36 L42 36 M48 6 L58 6 L48 16 L58 16"/></symbol>
+  <symbol id="dd-planet" viewBox="0 0 64 64"><circle cx="32" cy="32" r="13"/><path d="M20 38 C6 46 8 52 22 47 C32 44 44 37 52 30 C60 22 56 16 44 24"/></symbol>
+  <symbol id="dd-dots" viewBox="0 0 64 64"><circle cx="12" cy="20" r="3.5" fill="currentColor" stroke="none"/><circle cx="34" cy="10" r="2.5" fill="currentColor" stroke="none"/><circle cx="50" cy="34" r="4" fill="currentColor" stroke="none"/><circle cx="22" cy="48" r="2.5" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="dd-sun" viewBox="0 0 64 64"><circle cx="32" cy="32" r="11"/><path d="M32 6 L32 13 M32 51 L32 58 M6 32 L13 32 M51 32 L58 32 M13 13 L18 18 M46 46 L51 51 M51 13 L46 18 M18 46 L13 51"/></symbol>
+  <symbol id="dd-grip" viewBox="0 0 64 64"><g fill="currentColor" stroke="none"><circle cx="22" cy="14" r="5"/><circle cx="42" cy="14" r="5"/><circle cx="22" cy="32" r="5"/><circle cx="42" cy="32" r="5"/><circle cx="22" cy="50" r="5"/><circle cx="42" cy="50" r="5"/></g></symbol>
+  <symbol id="dd-printer" viewBox="0 0 64 64"><path d="M18 24 L18 8 L46 8 L46 24 M12 24 L52 24 C56 24 58 26 58 30 L58 44 L46 44 M18 44 L6 44 L6 30 C6 26 8 24 12 24 M18 36 L46 36 L46 58 L18 58 Z M24 44 L40 44 M24 50 L36 50"/></symbol>
+  <symbol id="dd-blossom" viewBox="0 0 64 64"><g fill="currentColor" fill-opacity=".22"><ellipse cx="32" cy="17" rx="8" ry="12"/><ellipse cx="32" cy="17" rx="8" ry="12" transform="rotate(72 32 32)"/><ellipse cx="32" cy="17" rx="8" ry="12" transform="rotate(144 32 32)"/><ellipse cx="32" cy="17" rx="8" ry="12" transform="rotate(216 32 32)"/><ellipse cx="32" cy="17" rx="8" ry="12" transform="rotate(288 32 32)"/></g><circle cx="32" cy="32" r="5" fill="currentColor"/></symbol>
+  <symbol id="dd-snow" viewBox="0 0 64 64"><path d="M32 6 L32 58 M9.5 19 L54.5 45 M9.5 45 L54.5 19 M32 15 L25 9 M32 15 L39 9 M32 49 L25 55 M32 49 L39 55 M17 23 L15 14 M17 23 L9 27 M47 41 L49 50 M47 41 L55 37 M17 41 L9 37 M17 41 L15 50 M47 23 L55 27 M47 23 L49 14"/></symbol>
+  <symbol id="dd-acorn" viewBox="0 0 64 64"><path d="M14 27 C14 15 50 15 50 27 Z M18 27 C18 45 28 55 32 57 C36 55 46 45 46 27 M32 16 C32 12 34 9 38 7 M22 22 L42 22"/></symbol>
+  <symbol id="dd-maple" viewBox="0 0 64 64"><path d="M32 6 L37 18 L46 13 L44 26 L56 24 L50 34 L58 40 L42 42 L44 50 L32 44 L20 50 L22 42 L6 40 L14 34 L8 24 L20 26 L18 13 L27 18 Z M32 44 L32 60"/></symbol>
+  <symbol id="dd-wave" viewBox="0 0 64 64"><path d="M2 30 C10 20 18 20 26 30 S42 40 50 30 S60 24 62 26 M2 44 C10 34 18 34 26 44 S42 54 50 44 S60 38 62 40"/></symbol>
+  <symbol id="dd-shell" viewBox="0 0 64 64"><path d="M32 54 L9 27 C9 12 55 12 55 27 Z M32 54 L21 18 M32 54 L32 15 M32 54 L43 18 M25 57 L39 57"/></symbol>
+  <symbol id="dd-palette" viewBox="0 0 64 64"><path d="M32 8 C16 8 6 20 6 32 C6 46 18 56 30 56 C36 56 37 50 34 47 C31 44 33 40 38 40 L45 40 C53 40 58 34 58 27 C58 16 47 8 32 8 Z"/><g fill="currentColor" stroke="none"><circle cx="19" cy="25" r="4"/><circle cx="30" cy="17" r="4"/><circle cx="43" cy="19" r="4"/><circle cx="17" cy="37" r="4"/></g></symbol>
+  <symbol id="dd-ruler" viewBox="0 0 64 64"><path d="M8 40 L40 8 L56 24 L24 56 Z M16 32 L21 37 M22 26 L25 29 M28 20 L33 25 M34 14 L37 17"/></symbol>
+</svg>
+<div class="season-field" aria-hidden="true"><svg class="dd c1 drift s-spring" style="left:2.9%;--top:82%;--s:19px;--d:23.9s;--dl:-2.4s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-blossom"/></svg><svg class="dd c2 drift s-spring" style="left:1.9%;--top:86%;--s:21px;--d:15.1s;--dl:-11.0s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-blossom"/></svg><svg class="dd c3 drift s-spring" style="left:14.9%;--top:52%;--s:19px;--d:18.8s;--dl:-25.4s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg><svg class="dd c1 drift s-spring" style="left:53.3%;--top:14%;--s:23px;--d:17.7s;--dl:-21.2s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-blossom"/></svg><svg class="dd c2 drift s-spring" style="left:17.8%;--top:47%;--s:24px;--d:14.8s;--dl:-1.5s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-blossom"/></svg><svg class="dd c3 drift s-spring" style="left:97.2%;--top:64%;--s:23px;--d:18.3s;--dl:-6.5s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg><svg class="dd c1 drift s-spring" style="left:95.6%;--top:15%;--s:20px;--d:22.8s;--dl:-7.5s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-blossom"/></svg><svg class="dd c2 drift s-spring" style="left:97.1%;--top:70%;--s:20px;--d:19.1s;--dl:-25.0s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-blossom"/></svg><svg class="dd c3 drift s-spring" style="left:35.1%;--top:11%;--s:32px;--d:18.2s;--dl:-12.9s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg><svg class="dd c1 drift s-spring" style="left:0.8%;--top:29%;--s:32px;--d:14.7s;--dl:-18.2s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-blossom"/></svg><svg class="dd c2 drift s-spring" style="left:96.3%;--top:10%;--s:33px;--d:18.3s;--dl:-15.9s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-blossom"/></svg><svg class="dd c3 drift s-spring" style="left:92.0%;--top:43%;--s:23px;--d:25.0s;--dl:-12.9s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg><svg class="dd c1 drift s-spring" style="left:75.5%;--top:63%;--s:29px;--d:17.3s;--dl:-10.8s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-blossom"/></svg><svg class="dd c2 drift s-spring" style="left:3.4%;--top:76%;--s:33px;--d:16.8s;--dl:-6.1s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-blossom"/></svg><svg class="dd c1 drift s-fall" style="left:21.7%;--top:64%;--s:24px;--d:18.4s;--dl:-14.7s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-maple"/></svg><svg class="dd c2 drift s-fall" style="left:4.6%;--top:38%;--s:37px;--d:19.5s;--dl:-22.6s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg><svg class="dd c3 drift s-fall" style="left:3.6%;--top:19%;--s:34px;--d:16.3s;--dl:-25.6s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-acorn"/></svg><svg class="dd c1 drift s-fall" style="left:3.1%;--top:11%;--s:20px;--d:20.4s;--dl:-24.7s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-maple"/></svg><svg class="dd c2 drift s-fall" style="left:94.0%;--top:77%;--s:23px;--d:21.2s;--dl:-12.3s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-maple"/></svg><svg class="dd c3 drift s-fall" style="left:8.9%;--top:46%;--s:28px;--d:15.7s;--dl:-19.5s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg><svg class="dd c1 drift s-fall" style="left:26.4%;--top:69%;--s:20px;--d:18.3s;--dl:-17.9s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-acorn"/></svg><svg class="dd c2 drift s-fall" style="left:96.1%;--top:71%;--s:31px;--d:20.2s;--dl:-23.6s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-maple"/></svg><svg class="dd c3 drift s-fall" style="left:4.8%;--top:74%;--s:26px;--d:21.4s;--dl:-20.5s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-maple"/></svg><svg class="dd c1 drift s-fall" style="left:28.1%;--top:72%;--s:20px;--d:19.9s;--dl:-19.0s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg><svg class="dd c2 drift s-fall" style="left:92.5%;--top:86%;--s:31px;--d:19.4s;--dl:-24.4s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-acorn"/></svg><svg class="dd c3 drift s-fall" style="left:3.3%;--top:46%;--s:20px;--d:18.1s;--dl:-12.5s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-maple"/></svg><svg class="dd c1 drift s-fall" style="left:16.8%;--top:46%;--s:26px;--d:15.4s;--dl:-10.1s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-maple"/></svg><svg class="dd c2 drift s-fall" style="left:36.6%;--top:67%;--s:22px;--d:18.8s;--dl:-10.4s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg><svg class="dd c1 drift s-winter" style="left:92.0%;--top:61%;--s:29px;--d:23.7s;--dl:-3.8s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c2 drift s-winter" style="left:3.2%;--top:50%;--s:17px;--d:23.6s;--dl:-18.9s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c3 drift s-winter" style="left:8.4%;--top:25%;--s:30px;--d:14.3s;--dl:-5.5s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg><svg class="dd c1 drift s-winter" style="left:5.3%;--top:61%;--s:28px;--d:14.7s;--dl:-19.2s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c2 drift s-winter" style="left:76.2%;--top:7%;--s:30px;--d:15.6s;--dl:-3.9s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c3 drift s-winter" style="left:4.0%;--top:52%;--s:17px;--d:16.1s;--dl:-12.3s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg><svg class="dd c1 drift s-winter" style="left:2.9%;--top:29%;--s:20px;--d:24.6s;--dl:-1.5s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c2 drift s-winter" style="left:7.0%;--top:57%;--s:30px;--d:19.3s;--dl:-15.9s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c3 drift s-winter" style="left:93.2%;--top:80%;--s:30px;--d:20.1s;--dl:-6.4s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg><svg class="dd c1 drift s-winter" style="left:8.5%;--top:38%;--s:17px;--d:24.1s;--dl:-3.6s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c2 drift s-winter" style="left:2.8%;--top:85%;--s:18px;--d:22.0s;--dl:-20.4s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c3 drift s-winter" style="left:5.8%;--top:39%;--s:17px;--d:25.6s;--dl:-5.7s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg><svg class="dd c1 drift s-winter" style="left:4.4%;--top:34%;--s:26px;--d:22.5s;--dl:-25.8s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c2 drift s-winter" style="left:1.8%;--top:38%;--s:14px;--d:18.1s;--dl:-11.9s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c3 drift s-winter" style="left:4.7%;--top:12%;--s:17px;--d:25.8s;--dl:-20.5s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg><svg class="dd c1 drift s-winter" style="left:2.4%;--top:40%;--s:22px;--d:23.8s;--dl:-22.1s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c2 drift s-winter" style="left:95.1%;--top:41%;--s:19px;--d:15.1s;--dl:-1.5s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><svg class="dd c3 drift s-winter" style="left:98.5%;--top:27%;--s:16px;--d:15.0s;--dl:-22.3s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg><svg class="dd c3 s-summer spin" style="right:4%;top:3%;--s:86px" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sun"/></svg><svg class="dd c1 s-summer float" style="left:1%;bottom:4%;--s:110px" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-wave"/></svg><svg class="dd c1 s-summer float" style="right:2%;bottom:10%;--s:90px;animation-delay:-3s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-wave"/></svg><svg class="dd c2 s-summer" style="left:5%;top:46%;--s:40px;--r:-14deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-shell"/></svg><svg class="dd c3 s-summer" style="right:6%;top:58%;--s:34px;--r:18deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-shell"/></svg><svg class="dd c2 s-summer float" style="left:3%;top:20%;--s:26px" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg><svg class="dd c1 s-summer float" style="right:9%;top:34%;--s:20px;animation-delay:-2s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg></div>
+<div class="doodle-field" aria-hidden="true"><svg class="dd c1 float" style="left:2%;top:8%;--s:42px;--r:-12deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-star"/></svg><svg class="dd c2" style="left:4%;top:38%;--s:50px;--r:10deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-spiral"/></svg><svg class="dd c1 float" style="left:1.5%;top:66%;--s:58px;--r:-8deg;animation-delay:-2s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-pencil"/></svg><svg class="dd c3" style="left:6%;top:88%;--s:46px" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-dots"/></svg><svg class="dd c3 float" style="right:3%;top:6%;--s:64px;animation-delay:-3s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-cloud"/></svg><svg class="dd c2" style="right:2%;top:30%;--s:60px;--r:-6deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-plane"/></svg><svg class="dd c1 float" style="right:6%;top:52%;--s:34px;animation-delay:-1s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg><svg class="dd c2" style="right:2%;top:72%;--s:56px;--r:14deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-planet"/></svg><svg class="dd c3" style="right:7%;top:91%;--s:34px;--r:-14deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-heart"/></svg><svg class="dd c2" style="left:4%;top:22%;--s:44px;--r:6deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-mug"/></svg><svg class="dd c3" style="right:5%;top:17%;--s:40px;--r:20deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-ruler"/></svg><svg class="dd c2 float" style="left:3%;top:78%;--s:38px;--r:-30deg;animation-delay:-4s" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg><svg class="dd c3" style="left:7%;top:52%;--s:22px" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg><svg class="dd c3" style="right:8%;top:40%;--s:24px;--r:18deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-star"/></svg></div>
+<div class="wrap">
+  <header class="masthead">
+    <div class="sprout-wrap">
+    <svg class="dd c1 pop p1" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg><svg class="dd c2 pop p2" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg><svg class="dd c3 pop p3" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-star"/></svg>
+    <svg class="sprout" id="sprout" viewBox="0 0 100 100" aria-hidden="true">
+      <ellipse cx="50" cy="90" rx="30" ry="6" style="fill:var(--sp-shadow)"/>
+      <path d="M30 70 h40 l-5 22 h-30z" style="fill:var(--sp-pot)"/>
+      <rect x="27" y="64" width="46" height="9" rx="3" style="fill:var(--sp-rim)"/>
+      <path d="M50 64 C50 50 49 40 50 30" style="stroke:var(--sp-stem)" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path class="leaf l1" d="M49 46 C38 46 28 40 26 30 C38 28 47 34 49 46z" style="fill:var(--sp-leaf1)"/>
+      <path class="leaf l2" d="M51 40 C62 40 72 32 74 22 C62 20 53 28 51 40z" style="fill:var(--sp-leaf2)"/>
+      <path class="leaf l3" d="M50 31 C42 24 43 14 50 8 C57 14 58 24 50 31z" style="fill:var(--sp-leaf1)"/>
+      <circle class="bud" cx="50" cy="9" r="4" style="fill:var(--sp-bud)"/>
+    </svg>
+    </div>
+    <div>
+      <h1>Study Sprout</h1>
+      <p>Your free time and your subjects, grown into a study timetable.</p>
+      <svg class="dd c2 mast-arrow" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-arrow"/></svg>
+    </div>
+    <details class="theme-pick" id="themePick">
+      <summary><svg class="dd c1" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-palette"/></svg><span>Theme: <b id="themeName">Main theme</b></span></summary>
+      <div class="theme-menu" role="radiogroup" aria-label="Theme"><label class="theme-opt"><input type="radio" name="theme" value="main"><span class="tn">Main theme</span><svg class="dd c1" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg><span class="theme-sw"><i style="background:#6b5a48"></i><i style="background:#9eab9a"></i><i style="background:#fff4e9"></i><i style="background:#e7d8c9"></i><i style="background:#879183"></i></span></label><label class="theme-opt"><input type="radio" name="theme" value="spring"><span class="tn">Spring</span><svg class="dd c1" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-blossom"/></svg><span class="theme-sw"><i style="background:#fcd894"></i><i style="background:#f9dad7"></i><i style="background:#aaba9e"></i><i style="background:#deeaf6"></i><i style="background:#ece8dc"></i></span></label><label class="theme-opt"><input type="radio" name="theme" value="fall"><span class="tn">Fall</span><svg class="dd c1" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-acorn"/></svg><span class="theme-sw"><i style="background:#bc5b22"></i><i style="background:#7a322d"></i><i style="background:#c08b26"></i><i style="background:#67482c"></i><i style="background:#796123"></i></span></label><label class="theme-opt"><input type="radio" name="theme" value="winter"><span class="tn">Winter</span><svg class="dd c1" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-snow"/></svg><span class="theme-sw"><i style="background:#3494b7"></i><i style="background:#a5c4d6"></i><i style="background:#accdd8"></i><i style="background:#fffaf4"></i><i style="background:#d3bbcb"></i></span></label><label class="theme-opt"><input type="radio" name="theme" value="summer"><span class="tn">Summer</span><svg class="dd c1" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-shell"/></svg><span class="theme-sw"><i style="background:#f5b83d"></i><i style="background:#ffc2b8"></i><i style="background:#ff8a7a"></i><i style="background:#6cc5c1"></i><i style="background:#1f7f81"></i></span></label></div>
+    </details>
+  </header>
+
+  <nav aria-label="Pages">
+    <ul class="pages" id="pages">
+      <li><a href="#today" data-page="today"><span class="ico" aria-hidden="true">☀</span>Today</a></li>
+      <li><a href="#week" data-page="week"><span class="ico" aria-hidden="true">🗓</span>My week</a></li>
+      <li><a href="#subjects" data-page="subjects"><span class="ico" aria-hidden="true">📚</span>My subjects</a></li>
+      <li><a href="#timetable" data-page="timetable"><span class="ico" aria-hidden="true">🌱</span>My timetable</a></li>
+      <li><a href="#how" data-page="how"><span class="ico" aria-hidden="true">?</span>How to use</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- TODAY -->
+    <section id="page-today" data-page-section="today" aria-labelledby="h-today" hidden>
+      <h2 class="page-title" id="h-today">Today<svg class="dd c2 title-squig" aria-hidden="true" viewBox="0 0 120 20" preserveAspectRatio="none"><use href="#dd-squiggle"/></svg><svg class="dd c1 title-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sun"/></svg></h2>
+      <div id="todayBody"></div>
+    </section>
+
+    <!-- PRINT -->
+    <section id="page-print" data-page-section="print" aria-labelledby="h-print" hidden>
+      <h2 class="page-title" id="h-print">Printable timetable<svg class="dd c2 title-squig" aria-hidden="true" viewBox="0 0 120 20" preserveAspectRatio="none"><use href="#dd-squiggle"/></svg><svg class="dd c1 title-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-printer"/></svg></h2>
+      <div class="print-actions row">
+        <a class="btn ghost" href="#timetable" style="text-decoration:none">Back to my timetable</a>
+        <button class="btn" id="doPrint">Print</button>
+        <span class="print-hint">If no print window opens, open this page in its own browser tab and print from there.</span>
+      </div>
+      <div id="printBody"></div>
+    </section>
+
+    <!-- MY WEEK -->
+    <section id="page-week" data-page-section="week" aria-labelledby="h-week" hidden>
+      <h2 class="page-title" id="h-week">My week<svg class="dd c2 title-squig" aria-hidden="true" viewBox="0 0 120 20" preserveAspectRatio="none"><use href="#dd-squiggle"/></svg><svg class="dd c1 title-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-clock"/></svg></h2>
+      <div class="panel"><svg class="dd c3 peek" style="--r:14deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-star"/></svg>
+      <div class="row spread">
+        <div class="row">
+          <div class="brushes" role="radiogroup" aria-label="Brush">
+            <label><input type="radio" name="brush" value="free" checked><span class="swatch free"></span>Free</label>
+            <label><input type="radio" name="brush" value="busy"><span class="swatch busy"></span>Busy</label>
+            <label><input type="radio" name="brush" value="erase"><span class="swatch erase"></span>Erase</label>
+          </div>
+          <input class="field" id="busyLabel" placeholder="Busy with… e.g. School" aria-label="Label for busy time" value="School" hidden>
+        </div>
+        <span class="tally" id="tally"></span>
+      </div>
+      <div class="grid-scroll"><div class="avail" id="avail"></div></div>
+      <div class="nav-next">
+        <button class="btn ghost small" id="sampleWeek">Fill a sample week</button>
+        <button class="btn ghost small" id="copyMon">Copy Monday to Tue–Fri</button>
+        <button class="btn ghost small" id="clearWeek">Clear grid</button>
+        <a class="btn" href="#subjects" style="text-decoration:none">Next: my subjects</a>
+      </div>
+      </div>
+    </section>
+
+    <!-- MY SUBJECTS -->
+    <section id="page-subjects" data-page-section="subjects" aria-labelledby="h-subj" hidden>
+      <h2 class="page-title" id="h-subj">My subjects<svg class="dd c2 title-squig" aria-hidden="true" viewBox="0 0 120 20" preserveAspectRatio="none"><use href="#dd-squiggle"/></svg><svg class="dd c1 title-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-books"/></svg></h2>
+      <div class="panel"><svg class="dd c2 peek" style="--r:-8deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-plane"/></svg>
+      <div class="row">
+        <input class="field" id="newSubject" placeholder="Subject name, e.g. Chemistry" aria-label="New subject name" style="flex:1;max-width:340px">
+        <button class="btn" id="addSubject">Add subject</button>
+      </div>
+      <div id="subjects"></div>
+      <div class="nav-next">
+        <a class="btn ghost" href="#week" style="text-decoration:none">Back to my week</a>
+        <a class="btn" href="#timetable" style="text-decoration:none">Next: my timetable</a>
+      </div>
+      </div>
+    </section>
+
+    <!-- MY TIMETABLE -->
+    <section id="page-timetable" data-page-section="timetable" aria-labelledby="h-plan" hidden>
+      <h2 class="page-title" id="h-plan">My timetable<svg class="dd c2 title-squig" aria-hidden="true" viewBox="0 0 120 20" preserveAspectRatio="none"><use href="#dd-squiggle"/></svg><svg class="dd c1 title-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-pencil"/></svg></h2>
+      <div class="panel"><svg class="dd c2 peek" style="--r:10deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-mug"/></svg>
+        <h2 style="font-size:1.3rem;margin-bottom:12px">Plan settings</h2>
+        <div class="settings">
+          <label class="labelled">Start on<input type="date" class="field" id="setStart"></label>
+          <label class="labelled">Plan length
+            <select class="field" id="setWeeks">
+              <option value="1">1 week</option><option value="2">2 weeks</option><option value="3">3 weeks</option><option value="4">4 weeks</option><option value="6">6 weeks</option><option value="8">8 weeks</option>
+            </select></label>
+          <label class="labelled">Session length
+            <select class="field" id="setSession">
+              <option value="30">30 minutes</option><option value="60">1 hour</option><option value="90">1½ hours</option><option value="120">2 hours</option>
+            </select></label>
+          <label class="labelled">Most study in a day
+            <select class="field" id="setMax">
+              <option value="1">1 hour</option><option value="2">2 hours</option><option value="3">3 hours</option><option value="4">4 hours</option><option value="5">5 hours</option><option value="6">6 hours</option><option value="8">8 hours</option>
+            </select></label>
+        </div>
+        <div class="row" style="gap:20px;margin-bottom:18px">
+          <label class="check"><input type="checkbox" id="setBreaks">Leave a 30-minute break between sessions</label>
+          <label class="check"><input type="checkbox" id="setRevision">Use spare sessions for revision</label>
+        </div>
+        <button class="btn big" id="grow">Grow my timetable</button>
+        <p class="warn" id="growError" role="alert" hidden></p>
+      </div>
+      <div class="panel" id="result" aria-live="polite" hidden></div>
+    </section>
+    <!-- HOW TO USE -->
+    <section id="page-how" data-page-section="how" aria-labelledby="h-how" hidden>
+      <h2 class="page-title" id="h-how">How to use Study Sprout<svg class="dd c2 title-squig" aria-hidden="true" viewBox="0 0 120 20" preserveAspectRatio="none"><use href="#dd-squiggle"/></svg><svg class="dd c1 title-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-bulb"/></svg></h2>
+      <div class="panel how"><svg class="dd c3 peek" style="--r:12deg" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-heart"/></svg>
+        <div class="how-step"><svg class="dd c1 how-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-clock"/></svg>
+          <div class="how-num" style="background:var(--st0bg);--hn-ink:var(--st0ink)">1</div>
+          <div>
+            <h3>Paint your week</h3>
+            <p>On <a href="#week">My week</a>, show when you can and can’t study. This is your usual week, and it repeats for every week of the plan.</p>
+            <ul><li>Pick the <span class="inline-sw" style="background:var(--free)"></span><b>Free</b> brush and drag over the hours you could study.</li><li>Pick <span class="inline-sw" style="background:var(--busy)"></span><b>Busy</b>, type what it is (School, Football, Tuition) and drag over those hours.</li><li>Blank hours are treated as off-limits, like sleep or downtime.</li><li>Drag over a painted slot with the same brush to erase it, or use <b>Erase</b>.</li><li><b>Copy Monday to Tue–Fri</b> saves time if your school days look alike.</li><li>On a phone, scroll by dragging the time column on the left, since dragging the grid paints it.</li></ul>
+          </div>
+        </div>
+        <div class="how-step"><svg class="dd c2 how-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-book"/></svg>
+          <div class="how-num" style="background:var(--st1bg);--hn-ink:var(--st1ink)">2</div>
+          <div>
+            <h3>Add your subjects</h3>
+            <p>On <a href="#subjects">My subjects</a>, list what you need to cover.</p>
+            <ul><li>Add each subject, then its portions: chapters, topics or past papers, with a rough number of hours.</li><li>Set how hard the subject is. Harder subjects get a little more priority.</li><li>Add an exam date if there is one. That subject is planned before exam day, and a countdown appears.</li><li><b>Favourite times</b> lock a subject to a time, like Maths every Saturday at 11:30 am. A heart shows on those sessions. The time needs to be free in My week.</li><li>Tap the coloured blob to change the subject’s sticker colour.</li></ul>
+          </div>
+        </div>
+        <div class="how-step"><svg class="dd c3 how-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg>
+          <div class="how-num" style="background:var(--st2bg);--hn-ink:var(--st2ink)">3</div>
+          <div>
+            <h3>Grow your timetable</h3>
+            <p>On <a href="#timetable">My timetable</a>, choose your settings and press <b>Grow my timetable</b>.</p>
+            <ul><li><b>Session length</b> is how long each study block lasts, and <b>Most study in a day</b> stops days getting overloaded.</li><li><b>Breaks</b> leave 30 minutes between sessions. <b>Revision</b> fills spare sessions once portions are covered.</li><li>Growing again rebuilds the plan from scratch. Moves and rescues are reset, but ticked sessions stay ticked when they land in the same place.</li></ul>
+          </div>
+        </div>
+        <div class="how-step"><svg class="dd c1 how-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sun"/></svg>
+          <div class="how-num" style="background:var(--st3bg);--hn-ink:var(--st3ink)">4</div>
+          <div>
+            <h3>Check in on Today</h3>
+            <p><a href="#today">Today</a> is the page to open each day.</p>
+            <ul><li>It lists today’s sessions in order with your busy blocks, with the next one marked <b>Up next</b>.</li><li>Exam countdown cards show how many days are left and how many sessions you’ve done for each subject.</li><li>Ticking <b>Done</b> pops up a little encouraging note.</li></ul>
+          </div>
+        </div>
+        <div class="how-step"><svg class="dd c2 how-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-arrow"/></svg>
+          <div class="how-num" style="background:var(--st4bg);--hn-ink:var(--st4ink)">5</div>
+          <div>
+            <h3>Move sessions around</h3>
+            
+            <ul><li>On My timetable, pick a week, then a day tab to see that day's sessions. Each tab shows how many sessions are done, like 1/3.</li><li>To move a session, grab the dotted handle on its sticker and drag it onto another day's tab or onto another session.</li><li>Or tap the handle, switch to another day or week, then tap the day or a session to put it there.</li><li>Dropping on a day puts it in the first free gap that day. Dropping on another session swaps the two.</li><li>Sessions can’t be moved onto or past their subject’s exam day.</li></ul>
+          </div>
+        </div>
+        <div class="how-step"><svg class="dd c3 how-dd" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-heart"/></svg>
+          <div class="how-num" style="background:var(--st5bg);--hn-ink:var(--st5ink)">6</div>
+          <div>
+            <h3>Rescue missed sessions and print</h3>
+            
+            <ul><li>Unticked sessions from the past are marked <b>Missed</b>. Press <b>Rescue</b> to move one to the next free gap, or <b>Rescue all</b>.</li><li>Rescues stay within your daily limit where possible and always before the exam.</li><li><b>Printable version</b> on My timetable gives a clean one-week-per-page layout with tick boxes.</li><li>Press <b>Theme</b> at the top to switch between the Main theme, Spring, Fall, Winter and Summer. Each has its own colours, sticker shades and drifting doodles.</li><li>Everything saves in this browser automatically, so you can close the page and come back.</li></ul>
+          </div>
+        </div>
+        <div class="how-foot"><a class="btn" href="#week" style="text-decoration:none">Start with my week</a></div>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <footer class="foot" aria-hidden="true"><svg class="dd c2" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-leaf"/></svg><svg class="dd c3" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-star"/></svg><svg class="dd c1 foot-squig" viewBox="0 0 120 20" preserveAspectRatio="none"><use href="#dd-squiggle"/></svg><svg class="dd c2" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-book"/></svg><svg class="dd c1" style="" aria-hidden="true" viewBox="0 0 64 64"><use href="#dd-sparkle"/></svg></footer>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
